@@ -5,3 +5,15 @@
  - 米
  - 漬物
  - 味噌汁
+
+ ## 使ったことがあるプログラミング言語
+
+ - Java
+ - PHP
+ - C
+ - C#
+ - C++
+ - Python
+ - Go
+ - JavaScript
+ - Processing
