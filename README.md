@@ -17,3 +17,8 @@
  - Go
  - JavaScript
  - Processing
+
+ ## 得意なプログラミング言語
+ 1. Python
+ 2. Java
+ 3. Processing
