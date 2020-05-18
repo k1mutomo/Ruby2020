@@ -22,3 +22,6 @@
  1. Python
  2. Java
  3. Processing
+
+ ## Pythonでの Hello,Worldプログラム
+print("Hello,World")
