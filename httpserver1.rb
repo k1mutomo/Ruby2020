@@ -11,11 +11,10 @@ def server sock
     sock.close
 end
     
-s = TCPServer.open 80
-
-while true
-    Thread new s.accept do |sock|
-        server sock
+TCPServer.open 80 do |s|
+    while true
+        Thread new s.accept do |sock|
+            server sock
+        end
     end
 end
-s.close
