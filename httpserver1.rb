@@ -2,7 +2,6 @@ require 'socket'
 
 def server sock
     while line = sock.gets
-        sleep 2
         line.chomp!
         break if line == ""
         p line
@@ -13,7 +12,7 @@ end
     
 TCPServer.open 80 do |s|
     while true
-        Thread new s.accept do |sock|
+        Thread.new s.accept do |sock|
             server sock
         end
     end
