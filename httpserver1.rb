@@ -1,12 +1,21 @@
 require 'socket'
 
 def server sock
+    body = ""
     while line = sock.gets
         line.chomp!
         break if line == ""
         p line
-        sock.puts "receive: #{line}"
+        body += "receive: #{line}"
     end
+
+    sock.puts "HTTP/1.0 200 OK"
+    sock.puts ""
+    sock.puts "<!DOCKTYPE html>"
+    sock.puts "<html><body>"
+    sock.puts "<h1>Test</h1>"
+    sock.puts body
+    sock.puts "</body></html>"
     sock.close
 end
     
