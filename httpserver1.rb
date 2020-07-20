@@ -1,19 +1,28 @@
 require 'socket'
+require 'date'
 
 def server sock
     body = ""
     while line = sock.gets
         line.chomp!
         break if line == ""
-        p line
-        body += "receive: #{line}"
+
+        if /^GET (.*) HTTP.*/ =~ line
+            path = $1
+            if path == "/hello"
+                body += "HELLO!"
+            elsif path == "/now"
+                body += DateTime.now.to_s
+            else
+                body += "unknown #{path}"
+            end
+        end
     end
 
     sock.puts "HTTP/1.0 200 OK"
     sock.puts ""
-    sock.puts "<!DOCKTYPE html>"
+    sock.puts "<!DOCTYPE html>"
     sock.puts "<html><body>"
-    sock.puts "<h1>Test</h1>"
     sock.puts body
     sock.puts "</body></html>"
     sock.close
